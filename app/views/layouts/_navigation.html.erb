@@ -1,0 +1,127 @@
+<header class="navbar navbar-default navbar-fixed-top">
+    <% if logged_in? %>
+         <%= link_to "NexusHub Home", ideas_path, class: "btn btn-default btn-lg pull-left", id: "logo" %>
+         <% else %>
+         <%= link_to "NexusHub Home", root_path, class: "btn btn-default btn-lg pull-left", id: "logo" %>
+         <% end %>
+               <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+       
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                   
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Marketeers <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                            <li><a href="/ideas">Ideas listing</a>
+                            </li>
+                            <li><a href="/ideas/new">Create New Idea</a>
+                            </li>
+                            <li><a href="/marketers">Listing of Marketers</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><li>Business Ideas <% Vertical.all.each do |vertical| %><%= link_to vertical.name, vertical_path(vertical) %><% end %></li>
+                            </li>
+                            <li class="divider"></li>
+                            <li>Type of Solutions <% Solution.all.each do |solution| %><%= link_to solution.name, solution_path(solution) %><% end %></li>
+                            </li>
+                            
+                            
+                            
+                        </ul>
+                    </li>
+                   
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">The Method Classes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Conceptual Design</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Animation</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Code</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Game Development</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">CRM</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Sass</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Web Apps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">CRM</a>
+                            </li>
+                            <li><a href="#">Marketing Automation</a>
+                            </li>
+                            <li><a href="#">channel</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Powers Corp</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">MicroGenio</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+    <div class="container">
+        
+          <% if logged_in? %>
+                     
+              <ul class="topmen pull-right" style="margin-right ;border-left: 1px solid white">
+                  <div class='pull-right'>
+                 <div class="pull-left">
+                    <%= gravatar_for(current_user, size:80) %>
+                </div>
+                <div style="width:150px;padding-top:10px;padding-left:10px;float:left;">
+                    <small style="color:white;">Logged in as:<br/> <%= current_user.marketername %> </small>
+                </div>
+          <li class="dropdown">
+                  <%= link_to "#", class: "btn btn-default btn-sm dropdown-toggle", "data-toggle" => "dropdown" do %>
+                    User Options <b class="caret"></b> 
+                    <% end %>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "View Profile", marketer_path(current_user) %></li>
+                      <li><%= link_to "Edit Profile", edit_marketer_path(current_user) %></li>
+                      <li class="divider"></li>
+                            <li><%= link_to "Add a New Vertical", new_vertical_path %></li>
+                            <li><%= link_to "Add a New idea", new_idea_path %></li>
+                      <li class="divider"></li>
+                      <li> <%= link_to "Logout", logout_path %> </li>
+                    </ul>
+                </li>
+             </div>
+         
+          <% else %>
+                <div class="topmen pull-right">
+                <%= link_to "Login", login_path, class: "btn btn-default btn" %>
+              </div>
+          <% end %>
+          </div>
+          
+      </ul> 
+                
+              </ul>
+             
+      
+      
+  
+         
+          
+          
+</header>

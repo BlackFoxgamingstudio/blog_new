@@ -1,0 +1,13 @@
+<%= render 'shared/errors', obj: @vertical %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @vertical do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+ 
+      
+      <%= f.submit 'Create vertical' , class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

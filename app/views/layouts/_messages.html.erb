@@ -1,10 +1,9 @@
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <% flash.each do |msgtype, msg| %>
-        <div class="alert alert-<%= msgtype %>">
-                <%= msg %>
-                <a class="close" data-dismiss="alert">x</a>
-        </div>
-        <% end %>
-    </div>
+  <div class="col-md-10">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %>
+        <a class="close" data-dismiss="alert">&#215;</a>
+      </div>
+    <% end %>
+  </div>
 </div>

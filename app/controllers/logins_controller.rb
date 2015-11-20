@@ -1,28 +1,24 @@
-class LoginsController < ApplicationController
-   def new
-   
-   end
-   
-   def create
-    chef = Chef.find_by(email: params[:email])
-    #if chef is found and authenticated
-   
-    if chef && chef.authenticate(params[:password])
-        session[:chef_id] = chef.id
-        flash[:success]="Logged in successfully"
-        redirect_to recipes_path
-    else
-        flash[:danger]="Error-please check email and/or password and try again"
-        render 'new'   
-    end
+lass LoginsController < ApplicationController
+  
+  def new
+    
+  end
 
-   
-   end
-   
-   def destroy
-       session[:chef_id] = nil
-        flash[:success]="You have logged out"
-        redirect_to root_path
-       
-   end
+  def create
+    marketer = Marketer.find_by(email: params[:email])
+    if marketer && marketer.authenticate(params[:password])
+      session[:marketer_id] = marketer.id
+      flash[:success] = "You are logged in"
+      redirect_to ideas_path
+    else
+      flash[:danger] = "Your email address or password does not match"
+      render 'new'
+    end
+  end
+
+  def destroy
+    session[:marketer_id] = nil
+    flash[:success] = "You have logged out"
+    redirect_to root_path
+  end
 end

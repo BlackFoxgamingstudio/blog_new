@@ -1,13 +1,11 @@
-module ApplicationHelper
-    
-    def get_gravimage(chef, options = { size: 80 }) 
-       
-       hexemail = Digest::MD5::hexdigest(chef.email.downcase);
+ module ApplicationHelper
+
+    def gravatar_for(marketer, options = { size: 80 }) 
+       gravatar_id = Digest::MD5::hexdigest(marketer.email.downcase)
        size = options[:size]
+       gravatar_url = "http://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
        
-       img_url = "http://secure.gravatar.com/avatar/#{hexemail}?s=#{size}"
-       
-       image_tag(img_url, alt: chef.chefname, class: 'avimg')
+       image_tag(gravatar_url, alt: marketer.marketername, class: 'gravatar')
     end
     
-end
+ end

@@ -1,31 +1,45 @@
-<div class="jumbotron center">
-    <div class="jumbotext">
-    <h1>Welcome to myRecipes App</h1>
-     <p>A place to share your favourite recipes</p><br/>
-    <%= link_to "Sign up now", register_path, class: "btn btn-lg btn-primary" %>
-    <br/>&nbsp;
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-6">
-        <h3 class="midrow">
-            View Recipes as Guest User
-        </h3>
-        <h2 class="left">Browse and view all recipes as a guest and Sign up later.  You can also filter by styles or ingredients.</h2>
-        <p> <%= link_to "Browse Recipe Listings", recipes_path, class: "btn btn-warning btn-small" %> </p>
-    </div>
+<div class="center jumbotron">
+    <h1> Welcome to The NexusHub App</h1>
     
-    <div class="col-lg-6">
-        <h3 class="midrow">
-            Log Into myRecipes as a Chef
-        </h3>
-        <h2 class="left">Log in to add new recipes, edit your own recipes, vote on recipies and more!</h2>
-        <% if logged_in? %>
-            <p class="left" style="background: #f8f4e3;padding:10px;">You are already logged in as: <%= current_user.chefname %> </p>
+    <h2>
+        Our goal is to make Web Application for Marketeers to help them marketer their ideas across the internet. Our solutions will be built following best practices for Social media marketing and will be open source so we can share with the world!
+    </h2>
+    
+    <%= link_to "Sign up now!", register_path, class: "btn btn-lg btn-success" %>
+</div>
+<div class= "row">
+ <div class="col-lg-4">
+  <h3 class="midrow">
+    View Ideas as Guest User
+  </h3>
+  <h2 class="left">Sick of your favorite artist not coming to your city? Start a poll and gain votes t&nbspo get your artist to come preform now!&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+   Browse and view ideas as a guest and sign up later!</h2>
+  <p><%= link_to "Browse Ideas List", ideas_path, class: "btn btn-warning btin-small" %></p>
+ </div>
+  <div class="col-lg-4">
+  <h3 class="midrow">
+    Sign in to your account
+  </h3>
+  <h2 class="left">Have an idea for the next big business? Want to raise money for your business idea?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+   Vote for the best new Ideas and help market the crouwdfunder or take invest in the next big idea. Let's change the small business world for ever starting now! Add/update your ideas/create reviews/like-dislike ideas and much more!</h2>
+  <% if logged_in? %>
+  <p class="left" style="background: #f8f4e3;padding:10px;">You are already logged in as: <%= current_user.marketername %> </p>
         <% else %>
-            <p> <%= link_to "Log Into myRecipes", login_path, class: "btn btn-warning btn-small" %> </p>
-        <% end %>
-    </div>
-
+  <p><%= link_to "log in to your account", login_path, class: "btn btn-warning btin-small" %></p>
+ </div>
+ 
+ <div class="col-lg-4">
+  <h3 class="midrow">
+    View Marketers as Guest User
+  </h3>
+  <h2 class="left">Want to Work in Sports Adversting, Broadcasting or Marketing but dont know where to start? Support local entrupuners and become a part of a sports based Startup! Help raise money, become and investor, get training, get a job in the Sport Media Indestry now!
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  Browse and view ideas as a guest and Sign up later!</h2>
+  
+  <p><%= link_to "Browse Marketers List", marketers_path , class: "btn btn-warning btin-small" %></p>
+   <% end %>
+ </div>
 </div>

@@ -13,57 +13,89 @@
 
 ActiveRecord::Schema.define(version: 20150708200826) do
 
-  create_table "chefs", force: :cascade do |t|
-    t.string   "chefname"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-    t.boolean  "admin",           default: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "chef_id"
-    t.integer  "recipe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.boolean  "like"
-    t.integer  "chef_id"
-    t.integer  "recipe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id"
+  
+  create_table "idea_ingredients", force: true do |t|
     t.integer "ingredient_id"
+    t.integer "idea_id"
   end
 
-  create_table "recipe_styles", force: :cascade do |t|
-    t.integer "recipe_id"
+  create_table "idea_solutions", force: true do |t|
+    t.integer "solution_id"
+    t.integer "idea_id"
+  end
+
+  create_table "idea_styles", force: true do |t|
     t.integer "style_id"
+    t.integer "idea_id"
   end
 
-  create_table "recipes", force: :cascade do |t|
+  create_table "idea_verticals", force: true do |t|
+    t.integer "vertical_id"
+    t.integer "idea_id"
+  end
+
+  create_table "ideas", force: true do |t|
+    t.string   "name",        limit: nil
+    t.text     "summary"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "marketer_id"
+    t.string   "picture",     limit: nil
+  end
+
+  create_table "verticals", force: true do |t|
+    t.string "name", limit: nil
+  end
+
+  create_table "likes", force: true do |t|
+    t.boolean  "like"
+    t.integer  "marketer_id"
+    t.integer  "idea_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "marketers", force: true do |t|
+    t.string   "marketername",    limit: nil
+    t.string   "email",           limit: nil
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest", limit: nil
+    t.boolean  "admin",                       default: false
+  end
+
+  create_table "method_soutions", force: true do |t|
+    t.integer "solution_id"
+    t.integer "idea_id"
+  end
+
+  create_table "methods", force: true do |t|
     t.string   "name"
     t.text     "summary"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "chef_id"
-    t.string   "picture"
   end
 
-  create_table "styles", force: :cascade do |t|
-    t.string "name"
+  create_table "reviews", force: true do |t|
+    t.text     "body"
+    t.integer  "marketer_id"
+    t.integer  "idea_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "solutions", force: true do |t|
+    t.string "name", limit: nil
+  end
+
+  create_table "styles", force: true do |t|
+    t.string "name", limit: nil
+  end
+
+  create_table "verticals", force: true do |t|
+    t.string "name", limit: nil
   end
 
 end
